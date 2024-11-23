@@ -3,7 +3,7 @@ from pathlib import Path
  
 from typing import Dict, Any 
  
-class JSONRepository: 
+class JSONManager: 
     def __init__(self, filename: str): 
         self.filename = filename 
  

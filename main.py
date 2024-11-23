@@ -1,6 +1,6 @@
 from typing import Optional
 
-from infra import JSONRepository
+from infra import JSONManager
 from entity import Document
 
 
@@ -35,16 +35,16 @@ def main():
                 doc = Document(filename, content="")
                 content = {"data": get_user_input("Введите содержимое файла ")}
                 doc.content = content
-                repo = JSONRepository(doc.filename)
-                repo.save_data(data=doc.content)
+                manager = JSONManager(doc.filename)
+                manager.save_data(data=doc.content)
                 print("Файл успешно добавлен")
                 input("Нажмите Enter, чтобы продолжить...")
 
             elif choice == "2":
                 filename = get_user_input("Название файла: ")
                 doc = Document(filename, "")
-                repo = JSONRepository(doc.filename)
-                print(f"Содержимое файла:\n{repo.load_data()['data']}")
+                manager = JSONManager(doc.filename)
+                print(f"Содержимое файла:\n{manager.load_data()['data']}")
                 input("Нажмите Enter, чтобы продолжить...")
 
 
